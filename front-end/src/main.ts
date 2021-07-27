@@ -11,6 +11,8 @@ import i18n from './i18n'
 import store from '@/store/index'
 import customComponents from '@/components/index'
 
+import { errorHandler } from './core/error-handler'
+
 const app = createApp(App)
 
 app.use(i18n)
@@ -20,5 +22,9 @@ app.use(VueAxios)
 app.use(ElementPlus, { i18n: i18n.global.t })
 app.use(store)
 app.use(customComponents)
+
+app.config.errorHandler = (err, vm, info) => {
+  errorHandler.perform(err)
+}
 
 app.mount('#app')

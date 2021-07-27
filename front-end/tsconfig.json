@@ -13,6 +13,7 @@
       "dom"
     ],
     "noImplicitAny": false,
+    "noImplicitThis": false,
     "suppressImplicitAnyIndexErrors": true,
     "allowSyntheticDefaultImports": true,
     "baseUrl": "./",
