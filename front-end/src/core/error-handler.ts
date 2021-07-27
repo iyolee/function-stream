@@ -1,5 +1,4 @@
 import ErrorHandler from '../error-manager/error-handler';
-import { isError } from 'lodash';
 
 const errorHandler = ErrorHandler.getInstance();
 
@@ -24,9 +23,7 @@ const errorHandlers = [
 
 // 兜底处理
 const defaultHandler = (err) => {
-  if (isError(err)) {
-    console.error('🚀 ~ 兜底处理', err);
-  }
+  console.error('🚀 ~ 兜底处理', err);
 };
 
 errorHandler.registerErrorHandlers(errorHandlers); // 注册条件处理器
