@@ -12,6 +12,8 @@ import store from '@/store/index'
 import customComponents from '@/components/index'
 
 import { errorHandler } from './core/error-handler'
+import ErrorCatcher from './error-manager/error-catcher'
+import { handleError } from './error-manager/error-handler'
 
 const app = createApp(App)
 
@@ -22,6 +24,9 @@ app.use(VueAxios)
 app.use(ElementPlus, { i18n: i18n.global.t })
 app.use(store)
 app.use(customComponents)
+
+const errorCatcher = ErrorCatcher.getInstance({}, handleError)
+errorCatcher.perform();
 
 app.config.errorHandler = (err, vm, info) => {
   errorHandler.perform(err)

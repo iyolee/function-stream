@@ -12,6 +12,8 @@
   </div>
 </template>
 <script>
+  import { handleError } from '../../error-manager/error-handler'
+
   export default {
     created() {
       throw 'this is vue error'
