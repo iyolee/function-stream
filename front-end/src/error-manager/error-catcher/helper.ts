@@ -71,6 +71,7 @@ export function catchConsoleError(_window, handleError) {
   };
 }
 
+// for vue2
 export function catchVueError(_window, handleError) {
   const vue = _window.Vue;
   if (!vue || !vue.config) return;
@@ -92,7 +93,7 @@ export function catchVueError(_window, handleError) {
     handleError({
       title: `Vue Error: ${info}`,
       msg: errMsg,
-      category: 'js',
+      category: 'vue',
     });
   };
 
