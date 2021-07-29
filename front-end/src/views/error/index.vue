@@ -6,9 +6,11 @@
     <br />
     <button @click="onClickPromiseError">触发 promise rejected</button>
     <br />
-    <button @click="onClickJSError">触发 JS运行时错误</button>
+    <button @click="onClickJSError">触发 JS 运行时错误</button>
     <br />
-    <button @click="onClickThrowError">触发 throw错误</button>
+    <button @click="onClickThrowError">触发 throw 错误</button>
+    <br />
+    <button @click="onClickFectchError">触发网络请求错误</button>
   </div>
 </template>
 <script>
@@ -16,7 +18,7 @@
 
   export default {
     created() {
-      throw 'this is vue error'
+      // throw 'this is vue error'
     },
     methods: {
       onClickImageError() {
@@ -37,6 +39,9 @@
       },
       onClickThrowError() {
         throw 'this is a error'
+      },
+      onClickFectchError() {
+        handleError(fetch('http://error.example'))
       }
     }
   }
