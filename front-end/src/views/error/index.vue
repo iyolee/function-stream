@@ -18,7 +18,7 @@
 
   export default {
     created() {
-      // throw 'this is vue error'
+      throw 'this is vue error'
     },
     methods: {
       onClickImageError() {

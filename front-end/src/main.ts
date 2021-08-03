@@ -11,9 +11,7 @@ import i18n from './i18n'
 import store from '@/store/index'
 import customComponents from '@/components/index'
 
-import { errorHandler } from './core/error-handler'
-import ErrorCatcher from './error-manager/error-catcher'
-import { handleError } from './error-manager/error-handler'
+import { handler, logger, catcher } from './core/error-service'
 
 const app = createApp(App)
 
@@ -25,11 +23,10 @@ app.use(ElementPlus, { i18n: i18n.global.t })
 app.use(store)
 app.use(customComponents)
 
-const errorCatcher = ErrorCatcher.getInstance({}, handleError)
-errorCatcher.perform();
+catcher.perform();
 
 app.config.errorHandler = (err, vm, info) => {
-  errorHandler.perform(err)
+  handler.perform(err)
 }
 
 app.mount('#app')
